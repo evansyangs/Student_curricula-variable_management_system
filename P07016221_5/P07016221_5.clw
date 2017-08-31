@@ -15,9 +15,10 @@ Class3=CP07016221_5View
 Class4=CMainFrame
 Class9=CAboutDlg
 
-ResourceCount=2
+ResourceCount=3
 Resource1=IDR_MAINFRAME
 Resource2=IDD_ABOUTBOX
+Resource3=IDD_SIGNUP
 
 [CLS:CP07016221_5App]
 Type=0
@@ -114,4 +115,23 @@ Command6=ID_EDIT_PASTE
 Command7=ID_FILE_PRINT
 Command8=ID_APP_ABOUT
 CommandCount=8
+
+[DLG:IDD_SIGNUP]
+Type=1
+Class=?
+ControlCount=14
+Control1=IDOK,button,1342242817
+Control2=IDCANCEL,button,1342242816
+Control3=IDC_STATIC,static,1342308352
+Control4=IDC_ID,edit,1350631552
+Control5=IDC_STATIC,static,1342308352
+Control6=IDC_NAME,edit,1350631552
+Control7=IDC_STATIC,static,1342308352
+Control8=IDC_CLASS,edit,1350631552
+Control9=IDC_STATIC,static,1342308352
+Control10=IDC_TEL,edit,1350631552
+Control11=IDC_STATIC,static,1342308352
+Control12=IDC_STATIC,static,1342308352
+Control13=IDC_ADDRESS,edit,1350631552
+Control14=IDC_DATE,SysDateTimePick32,1342242848
 
