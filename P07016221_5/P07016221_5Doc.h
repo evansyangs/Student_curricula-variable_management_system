@@ -9,6 +9,7 @@
 #pragma once
 #endif // _MSC_VER > 1000
 
+#include "Student.h"
 
 class CP07016221_5Doc : public CDocument
 {
@@ -18,7 +19,7 @@ protected: // create from serialization only
 
 // Attributes
 public:
-
+	CTypedPtrArray<CObArray,CStudent*>mStudentArray;//´æ·ÅÑ§Éú
 // Operations
 public:
 
