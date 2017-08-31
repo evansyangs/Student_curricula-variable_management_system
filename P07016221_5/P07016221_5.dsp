@@ -114,6 +114,10 @@ SOURCE=.\P07016221_5View.cpp
 # End Source File
 # Begin Source File
 
+SOURCE=.\SignupDlg.cpp
+# End Source File
+# Begin Source File
+
 SOURCE=.\StdAfx.cpp
 # ADD CPP /Yc"stdafx.h"
 # End Source File
@@ -148,6 +152,10 @@ SOURCE=.\P07016221_5View.h
 # Begin Source File
 
 SOURCE=.\Resource.h
+# End Source File
+# Begin Source File
+
+SOURCE=.\SignupDlg.h
 # End Source File
 # Begin Source File
 
