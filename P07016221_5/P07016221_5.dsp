@@ -94,6 +94,10 @@ SOURCE=.\Course.cpp
 # End Source File
 # Begin Source File
 
+SOURCE=.\IDDlg.cpp
+# End Source File
+# Begin Source File
+
 SOURCE=.\MainFrm.cpp
 # End Source File
 # Begin Source File
@@ -132,6 +136,10 @@ SOURCE=.\Student.cpp
 # Begin Source File
 
 SOURCE=.\Course.h
+# End Source File
+# Begin Source File
+
+SOURCE=.\IDDlg.h
 # End Source File
 # Begin Source File
 

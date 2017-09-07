@@ -13,6 +13,7 @@ static char THIS_FILE[] = __FILE__;
 #endif
 
 #include "SignupDlg.h"
+#include "IDDlg.h"
 
 /////////////////////////////////////////////////////////////////////////////
 // CP07016221_5Doc
@@ -22,6 +23,7 @@ IMPLEMENT_DYNCREATE(CP07016221_5Doc, CDocument)
 BEGIN_MESSAGE_MAP(CP07016221_5Doc, CDocument)
 	//{{AFX_MSG_MAP(CP07016221_5Doc)
 	ON_COMMAND(ID_INPUT_SIGNUP, OnInputSignup)
+	ON_COMMAND(ID_INPUT_EDIT, OnInputEdit)
 	//}}AFX_MSG_MAP
 END_MESSAGE_MAP()
 
@@ -89,18 +91,59 @@ void CP07016221_5Doc::OnInputSignup()
 	// TODO: Add your command handler code here
 	CSignupDlg Dlg;
 	//提示，此处可对对话框空间关联成员变量初始化
+	Dlg.m_ID = 10000;
+	for(int i=0; i<mStudentArray.GetSize();i++)
+		if(mStudentArray[i]->mID>Dlg.m_ID)
+			Dlg.m_ID = mStudentArray[i]->mID;
+	Dlg.m_ID++;
+	Dlg.m_Name = "Zhangsan";
 	if(Dlg.DoModal() == IDOK)
 	{
 		CStudent* pStudent = new CStudent;
-		//用new生成CSportMan对象
+		//用new生成CStudent对象
 		pStudent->mAddress = Dlg.m_Address;
 		pStudent->mClass = Dlg.m_Class;
 		pStudent->mDate = Dlg.m_Date;
 		pStudent->mID = Dlg.m_ID;
 		pStudent->mTel = Dlg.m_Tel;
 		pStudent->mName = Dlg.m_Name;
-		//以上5行将数据将对话框内输入的数据赋值给CSportMan相应的成员变量
+		//以上6行将数据将对话框内输入的数据赋值给CStudent相应的成员变量
 		mStudentArray.Add(pStudent);
-		//将新生成的CSportMan对象加入CSportMan集合类中
+		//将新生成的CStudent对象加入CStudent集合类中
+	}	
+}
+
+void CP07016221_5Doc::OnInputEdit() 
+{
+	// TODO: Add your command handler code here
+	int Count = mStudentArray.GetSize();
+	if(Count==0)
+		return;
+
+	CIDDlg IDDlg;
+	IDDlg.mpDoc = this;
+	if(IDDlg.DoModal() == IDOK)
+	{
+		for(int i=0; i<Count;i++)
+			if(mStudentArray[i]->mID == atoi(IDDlg.m_ID))
+			{
+				CSignupDlg Dlg;
+				CStudent* pStudent = mStudentArray[i];
+				Dlg.m_ID = pStudent->mID;
+				Dlg.m_Name = pStudent->mName;
+				Dlg.m_Date = pStudent->mDate;
+				Dlg.m_Address = pStudent->mAddress;
+				Dlg.m_Class = pStudent->mClass;
+				Dlg.m_Tel = pStudent->mTel;
+				if(Dlg.DoModal()==IDOK)
+				{
+					pStudent->mAddress = Dlg.m_Address;
+					pStudent->mClass = Dlg.m_Class;
+					pStudent->mDate = Dlg.m_Date;
+					pStudent->mID = Dlg.m_ID;
+					pStudent->mTel = Dlg.m_Tel;
+					pStudent->mName = Dlg.m_Name;
+				}
+			}
 	}	
 }

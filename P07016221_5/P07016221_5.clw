@@ -2,24 +2,26 @@
 
 [General Info]
 Version=1
-LastClass=CSignupDlg
+LastClass=CIDDlg
 LastTemplate=CDialog
 NewFileInclude1=#include "stdafx.h"
 NewFileInclude2=#include "p07016221_5.h"
 LastPage=0
 
-ClassCount=6
+ClassCount=7
 Class1=CMainFrame
 Class2=CP07016221_5App
 Class3=CAboutDlg
 Class4=CP07016221_5Doc
 Class5=CP07016221_5View
 
-ResourceCount=3
-Resource1=IDD_ABOUTBOX
-Resource2=IDR_MAINFRAME
+ResourceCount=4
+Resource1=IDD_SIGNUP
+Resource2=IDD_ABOUTBOX
 Class6=CSignupDlg
-Resource3=IDD_SIGNUP
+Resource3=IDR_MAINFRAME
+Class7=CIDDlg
+Resource4=IDD_ID_DLG
 
 [CLS:CMainFrame]
 Type=0
@@ -32,6 +34,7 @@ Type=0
 BaseClass=CWinApp
 HeaderFile=P07016221_5.h
 ImplementationFile=P07016221_5.cpp
+LastObject=CP07016221_5App
 
 [CLS:CAboutDlg]
 Type=0
@@ -47,12 +50,15 @@ HeaderFile=P07016221_5Doc.h
 ImplementationFile=P07016221_5Doc.cpp
 Filter=N
 VirtualFilter=DC
+LastObject=CP07016221_5Doc
 
 [CLS:CP07016221_5View]
 Type=0
 BaseClass=CListView
 HeaderFile=P07016221_5View.h
 ImplementationFile=P07016221_5View.cpp
+Filter=C
+VirtualFilter=VWC
 
 [DLG:IDD_ABOUTBOX]
 Type=1
@@ -70,7 +76,7 @@ ControlCount=14
 Control1=IDOK,button,1342242817
 Control2=IDCANCEL,button,1342242816
 Control3=IDC_STATIC,static,1342308352
-Control4=IDC_ID,edit,1350631552
+Control4=IDC_ID,edit,1350633600
 Control5=IDC_STATIC,static,1342308352
 Control6=IDC_NAME,edit,1350631552
 Control7=IDC_STATIC,static,1342308352
@@ -108,8 +114,10 @@ Command7=ID_FILE_PRINT_SETUP
 Command8=ID_FILE_MRU_FILE1
 Command9=ID_APP_EXIT
 Command10=ID_INPUT_SIGNUP
-Command11=ID_APP_ABOUT
-CommandCount=11
+Command11=ID_INPUT_EDIT
+Command12=ID_OUTPUT_SIGNUP
+Command13=ID_APP_ABOUT
+CommandCount=13
 
 [ACL:IDR_MAINFRAME]
 Type=1
@@ -138,4 +146,22 @@ BaseClass=CDialog
 Filter=D
 VirtualFilter=dWC
 LastObject=CSignupDlg
+
+[DLG:IDD_ID_DLG]
+Type=1
+Class=CIDDlg
+ControlCount=4
+Control1=IDOK,button,1342242817
+Control2=IDCANCEL,button,1342242816
+Control3=IDC_IDBOX,combobox,1344340226
+Control4=IDC_STATIC,static,1342308352
+
+[CLS:CIDDlg]
+Type=0
+HeaderFile=IDDlg.h
+ImplementationFile=IDDlg.cpp
+BaseClass=CDialog
+Filter=D
+VirtualFilter=dWC
+LastObject=CIDDlg
 
