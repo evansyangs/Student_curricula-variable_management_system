@@ -16,10 +16,10 @@ Class4=CP07016221_5Doc
 Class5=CP07016221_5View
 
 ResourceCount=4
-Resource1=IDD_SIGNUP
-Resource2=IDD_ABOUTBOX
+Resource1=IDR_MAINFRAME
+Resource2=IDD_SIGNUP
 Class6=CSignupDlg
-Resource3=IDR_MAINFRAME
+Resource3=IDD_ABOUTBOX
 Class7=CIDDlg
 Resource4=IDD_ID_DLG
 

@@ -13,7 +13,7 @@
 #undef APSTUDIO_READONLY_SYMBOLS
 
 /////////////////////////////////////////////////////////////////////////////
-// Chinese (P.R.C.) resources
+// Chinese (中国) resources
 
 #if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_CHS)
 #ifdef _WIN32
@@ -171,8 +171,8 @@ CAPTION "关于 P07016221_5"
 FONT 9, "宋体"
 BEGIN
     ICON            IDR_MAINFRAME,IDC_STATIC,11,17,20,20
-    LTEXT           "P07016221_5 1.0 版",IDC_STATIC,40,10,119,8,SS_NOPREFIX
-    LTEXT           "版权所有 (C) 2017",IDC_STATIC,40,25,119,8
+    LTEXT           "07016221",IDC_STATIC,61,15,97,8,SS_NOPREFIX
+    LTEXT           "杨伊凡",IDC_STATIC,61,31,97,8
     DEFPUSHBUTTON   "确定",IDOK,178,7,50,14,WS_GROUP
 END
 
@@ -205,7 +205,7 @@ FONT 10, "System"
 BEGIN
     DEFPUSHBUTTON   "OK",IDOK,130,7,50,14
     PUSHBUTTON      "Cancel",IDCANCEL,130,24,50,14
-    COMBOBOX        IDC_IDBOX,39,7,48,30,CBS_DROPDOWN | CBS_SORT | 
+    COMBOBOX        IDC_IDBOX,39,7,48,84,CBS_DROPDOWN | CBS_SORT | 
                     WS_VSCROLL | WS_TABSTOP
     LTEXT           "学号",IDC_STATIC,7,7,17,8
 END
@@ -408,7 +408,7 @@ BEGIN
     AFX_IDS_PREVIEW_CLOSE   "关闭打印预览模式\n取消预阅"
 END
 
-#endif    // Chinese (P.R.C.) resources
+#endif    // Chinese (中国) resources
 /////////////////////////////////////////////////////////////////////////////
 
 
