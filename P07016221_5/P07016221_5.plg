@@ -6,16 +6,17 @@
 --------------------Configuration: P07016221_5 - Win32 Debug--------------------
 </h3>
 <h3>Command Lines</h3>
-Creating temporary file "C:\Users\c9100\AppData\Local\Temp\RSPFE73.tmp" with contents
+Creating temporary file "C:\Users\10988\AppData\Local\Temp\RSPFC33.tmp" with contents
 [
 /nologo /MDd /W3 /Gm /GX /ZI /Od /D "WIN32" /D "_DEBUG" /D "_WINDOWS" /D "_AFXDLL" /D "_MBCS" /Fp"Debug/P07016221_5.pch" /Yu"stdafx.h" /Fo"Debug/" /Fd"Debug/" /FD /GZ /c 
-"D:\Student_curricula-variable_management_system\P07016221_5\P07016221_5Doc.cpp"
+"H:\Student_curricula-variable_management_system\P07016221_5\Student.cpp"
 ]
-Creating command line "cl.exe @C:\Users\c9100\AppData\Local\Temp\RSPFE73.tmp" 
-Creating temporary file "C:\Users\c9100\AppData\Local\Temp\RSPFE74.tmp" with contents
+Creating command line "cl.exe @C:\Users\10988\AppData\Local\Temp\RSPFC33.tmp" 
+Creating temporary file "C:\Users\10988\AppData\Local\Temp\RSPFC34.tmp" with contents
 [
 /nologo /subsystem:windows /incremental:yes /pdb:"Debug/P07016221_5.pdb" /debug /machine:I386 /out:"Debug/P07016221_5.exe" /pdbtype:sept 
 ".\Debug\Course.obj"
+".\Debug\IDDlg.obj"
 ".\Debug\MainFrm.obj"
 ".\Debug\P07016221_5.obj"
 ".\Debug\P07016221_5Doc.obj"
@@ -24,12 +25,11 @@ Creating temporary file "C:\Users\c9100\AppData\Local\Temp\RSPFE74.tmp" with con
 ".\Debug\StdAfx.obj"
 ".\Debug\Student.obj"
 ".\Debug\P07016221_5.res"
-".\Debug\IDDlg.obj"
 ]
-Creating command line "link.exe @C:\Users\c9100\AppData\Local\Temp\RSPFE74.tmp"
+Creating command line "link.exe @C:\Users\10988\AppData\Local\Temp\RSPFC34.tmp"
 <h3>Output Window</h3>
 Compiling...
-P07016221_5Doc.cpp
+Student.cpp
 Linking...
 
 

@@ -15,6 +15,7 @@ static char THIS_FILE[]=__FILE__;
 //////////////////////////////////////////////////////////////////////
 // Construction/Destruction
 //////////////////////////////////////////////////////////////////////
+IMPLEMENT_SERIAL(CCourse,CObject,0) 
 
 CCourse::CCourse()
 {
@@ -24,4 +25,26 @@ CCourse::CCourse()
 CCourse::~CCourse()
 {
 
+}
+
+void CCourse::Serialize(CArchive &ar)
+{
+	if(ar.IsStoring())
+	{
+		ar << mClassroom;
+		ar << mCourseID;
+		ar << mCourseName;
+		ar << mCredit;
+		ar << mGrade;
+		ar << mTerm;
+	}
+	else
+	{
+		ar >> mClassroom;
+		ar >> mCourseID;
+		ar >> mCourseName;
+		ar >> mCredit;
+		ar >> mGrade;
+		ar >> mTerm;
+	}
 }

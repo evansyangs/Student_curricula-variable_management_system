@@ -66,6 +66,7 @@ void CP07016221_5Doc::Serialize(CArchive& ar)
 	{
 		// TODO: add loading code here
 	}
+	mStudentArray.Serialize(ar);
 }
 
 /////////////////////////////////////////////////////////////////////////////

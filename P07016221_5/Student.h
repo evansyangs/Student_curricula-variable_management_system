@@ -13,7 +13,9 @@
 
 class CStudent : public CObject  
 {
+	DECLARE_SERIAL(CStudent)
 public:
+	void Serialize(CArchive &ar);
 	int mID;//Ñ§ºÅ
 	CString mName;//ÐÕÃû
 	int mClass;//°à¼¶

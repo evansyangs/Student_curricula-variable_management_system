@@ -15,6 +15,7 @@ static char THIS_FILE[]=__FILE__;
 //////////////////////////////////////////////////////////////////////
 // Construction/Destruction
 //////////////////////////////////////////////////////////////////////
+IMPLEMENT_SERIAL(CStudent,CObject,0)
 
 CStudent::CStudent()
 {
@@ -24,4 +25,27 @@ CStudent::CStudent()
 CStudent::~CStudent()
 {
 
+}
+
+void CStudent::Serialize(CArchive &ar)
+{
+	if(ar.IsStoring())
+		{
+			ar << mAddress;
+			ar << mClass;
+			ar << mDate;
+			ar << mID;
+			ar << mName;
+			ar << mTel;
+		}
+		else
+		{
+			ar >> mAddress;
+			ar >> mClass;
+			ar >> mDate;
+			ar >> mID;
+			ar >> mName;
+			ar >> mTel;
+		}
+		mCourseArray.Serialize(ar);
 }

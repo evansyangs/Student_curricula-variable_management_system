@@ -11,7 +11,9 @@
 
 class CCourse : public CObject  
 {
+	DECLARE_SERIAL(CCourse)
 public:
+	void Serialize(CArchive &ar);
 	int mCourseID;//课程编号
 	CString mCourseName;//课程名称
 	int mCredit;//学分
