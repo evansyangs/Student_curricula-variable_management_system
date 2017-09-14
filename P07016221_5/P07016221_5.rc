@@ -120,12 +120,17 @@ BEGIN
         MENUITEM SEPARATOR
         MENUITEM "退出(&X)",                    ID_APP_EXIT
     END
-    POPUP "输入"
+    POPUP "学生信息登记"
     BEGIN
         MENUITEM "学生信息",                    ID_INPUT_SIGNUP
         MENUITEM "信息修改",                    ID_INPUT_EDIT
     END
-    POPUP "输出"
+    POPUP "学生课程登记 "
+    BEGIN
+        MENUITEM "学生课程",                    ID_INPUT_COURSE
+        MENUITEM "课程修改",                    ID_COURSE_EDIT
+    END
+    POPUP "学生信息表"
     BEGIN
         MENUITEM "学生信息表",                  ID_OUTPUT_SIGNUP
     END
@@ -210,6 +215,30 @@ BEGIN
     LTEXT           "学号",IDC_STATIC,7,7,17,8
 END
 
+IDD_COURSE DIALOG DISCARDABLE  0, 0, 197, 151
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "学生选课"
+FONT 10, "System"
+BEGIN
+    DEFPUSHBUTTON   "确定",IDOK,140,7,50,14
+    PUSHBUTTON      "取消",IDCANCEL,140,24,50,14
+    LTEXT           "课程编号",IDC_STATIC,20,33,34,11
+    EDITTEXT        IDC_COURSEID,67,32,48,14,ES_AUTOHSCROLL
+    LTEXT           "课程名称",IDC_STATIC,20,53,34,11
+    LTEXT           "学分",IDC_STATIC,20,70,34,11
+    EDITTEXT        IDC_CREDIT,67,68,48,14,ES_AUTOHSCROLL
+    LTEXT           "教室",IDC_STATIC,20,110,34,11
+    EDITTEXT        IDC_TERM,67,87,48,14,ES_AUTOHSCROLL
+    LTEXT           "成绩",IDC_STATIC,20,130,34,11
+    EDITTEXT        IDC_CLASSROOM,67,106,48,14,ES_AUTOHSCROLL
+    LTEXT           "学期",IDC_STATIC,20,90,34,11
+    EDITTEXT        IDC_GRADE,67,125,48,14,ES_AUTOHSCROLL
+    LTEXT           "姓名",IDC_STATIC,20,16,17,8
+    EDITTEXT        IDC_NAME,67,13,48,14,ES_AUTOHSCROLL | ES_READONLY
+    COMBOBOX        IDC_COURSENAME,66,51,48,54,CBS_DROPDOWN | CBS_SORT | 
+                    WS_VSCROLL | WS_TABSTOP
+END
+
 
 #ifndef _MAC
 /////////////////////////////////////////////////////////////////////////////
@@ -285,8 +314,35 @@ BEGIN
         TOPMARGIN, 7
         BOTTOMMARGIN, 49
     END
+
+    IDD_COURSE, DIALOG
+    BEGIN
+        LEFTMARGIN, 8
+        RIGHTMARGIN, 190
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 144
+    END
 END
 #endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Dialog Info
+//
+
+IDD_COURSE DLGINIT
+BEGIN
+    IDC_COURSENAME, 0x403, 9, 0
+0xdfb8, 0xc8b5, 0xfab4, 0xfdca, "\000" 
+    IDC_COURSENAME, 0x403, 9, 0
+0xfdca, 0xa7d1, 0xd6b7, 0xf6ce, "\000" 
+    IDC_COURSENAME, 0x403, 9, 0
+0xe2bd, 0xf6ce, 0xb8bc, 0xceba, "\000" 
+    IDC_COURSENAME, 0x403, 9, 0
+0xccb3, 0xf2d0, 0xe8c9, 0xc6bc, "\000" 
+    0
+END
 
 
 /////////////////////////////////////////////////////////////////////////////

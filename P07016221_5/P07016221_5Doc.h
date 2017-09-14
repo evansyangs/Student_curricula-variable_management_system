@@ -46,6 +46,7 @@ protected:
 	//{{AFX_MSG(CP07016221_5Doc)
 	afx_msg void OnInputSignup();
 	afx_msg void OnInputEdit();
+	afx_msg void OnInputCourse();
 	//}}AFX_MSG
 	DECLARE_MESSAGE_MAP()
 };

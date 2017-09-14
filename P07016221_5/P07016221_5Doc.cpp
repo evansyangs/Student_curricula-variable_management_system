@@ -14,6 +14,7 @@ static char THIS_FILE[] = __FILE__;
 
 #include "SignupDlg.h"
 #include "IDDlg.h"
+#include "CourseDlg.h"
 
 /////////////////////////////////////////////////////////////////////////////
 // CP07016221_5Doc
@@ -24,6 +25,7 @@ BEGIN_MESSAGE_MAP(CP07016221_5Doc, CDocument)
 	//{{AFX_MSG_MAP(CP07016221_5Doc)
 	ON_COMMAND(ID_INPUT_SIGNUP, OnInputSignup)
 	ON_COMMAND(ID_INPUT_EDIT, OnInputEdit)
+	ON_COMMAND(ID_INPUT_COURSE, OnInputCourse)
 	//}}AFX_MSG_MAP
 END_MESSAGE_MAP()
 
@@ -147,4 +149,41 @@ void CP07016221_5Doc::OnInputEdit()
 				}
 			}
 	}	
+}
+
+void CP07016221_5Doc::OnInputCourse() 
+{
+	int Count = mStudentArray.GetSize();
+	if(Count==0)
+		return;
+	// TODO: Add your command handler code here
+		// TODO: Add your command handler code here
+	CIDDlg IDDlg;
+	IDDlg.mpDoc = this;
+	//提示，此处可对对话框空间关联成员变量初始化
+	if(IDDlg.DoModal() == IDOK)
+	{
+		for(int i=0; i<mStudentArray.GetSize();i++)
+		{
+			if(mStudentArray[i]->mID == atoi(IDDlg.m_ID))
+			{
+				CCourseDlg Dlg;
+				Dlg.m_Name = mStudentArray[i]->mName;
+				if(Dlg.DoModal() == IDOK)
+				{
+					CCourse* pCourse = new CCourse;
+					//用new生成CStudent对象
+					pCourse->mClassroom = Dlg.m_Classroom;
+					pCourse->mCourseID = Dlg.m_CourseID;
+				//	pCourse->mCourseName = Dlg.m_CourseName;
+					pCourse->mCredit = Dlg.m_Credit;
+					pCourse->mGrade = Dlg.m_Grade;
+					pCourse->mTerm = Dlg.m_Term;
+					//以上6行将数据将对话框内输入的数据赋值给CStudent相应的成员变量
+					mStudentArray[i]->mCourseArray.Add(pCourse);
+					//将新生成的CStudent对象加入CStudent集合类中
+				}	
+			}
+		}
+	}
 }

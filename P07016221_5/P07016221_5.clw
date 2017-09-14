@@ -2,26 +2,43 @@
 
 [General Info]
 Version=1
-LastClass=CIDDlg
+LastClass=CCourseDlg
 LastTemplate=CDialog
 NewFileInclude1=#include "stdafx.h"
 NewFileInclude2=#include "p07016221_5.h"
 LastPage=0
 
-ClassCount=7
-Class1=CMainFrame
-Class2=CP07016221_5App
-Class3=CAboutDlg
-Class4=CP07016221_5Doc
-Class5=CP07016221_5View
+ClassCount=8
+Class1=CCourseDlg
+Class2=CIDDlg
+Class3=CMainFrame
+Class4=CP07016221_5App
+Class5=CAboutDlg
+Class6=CP07016221_5Doc
+Class7=CP07016221_5View
+Class8=CSignupDlg
 
-ResourceCount=4
-Resource1=IDR_MAINFRAME
+ResourceCount=5
+Resource1=IDD_ABOUTBOX
 Resource2=IDD_SIGNUP
-Class6=CSignupDlg
-Resource3=IDD_ABOUTBOX
-Class7=CIDDlg
-Resource4=IDD_ID_DLG
+Resource3=IDD_ID_DLG
+Resource4=IDR_MAINFRAME
+Resource5=IDD_COURSE
+
+[CLS:CCourseDlg]
+Type=0
+BaseClass=CDialog
+HeaderFile=CourseDlg.h
+ImplementationFile=CourseDlg.cpp
+Filter=D
+VirtualFilter=dWC
+LastObject=CCourseDlg
+
+[CLS:CIDDlg]
+Type=0
+BaseClass=CDialog
+HeaderFile=IDDlg.h
+ImplementationFile=IDDlg.cpp
 
 [CLS:CMainFrame]
 Type=0
@@ -34,31 +51,60 @@ Type=0
 BaseClass=CWinApp
 HeaderFile=P07016221_5.h
 ImplementationFile=P07016221_5.cpp
-LastObject=CP07016221_5App
 
 [CLS:CAboutDlg]
 Type=0
 BaseClass=CDialog
 HeaderFile=P07016221_5.cpp
 ImplementationFile=P07016221_5.cpp
-LastObject=CAboutDlg
 
 [CLS:CP07016221_5Doc]
 Type=0
 BaseClass=CDocument
 HeaderFile=P07016221_5Doc.h
 ImplementationFile=P07016221_5Doc.cpp
-Filter=N
-VirtualFilter=DC
-LastObject=CP07016221_5Doc
 
 [CLS:CP07016221_5View]
 Type=0
 BaseClass=CListView
 HeaderFile=P07016221_5View.h
 ImplementationFile=P07016221_5View.cpp
-Filter=C
-VirtualFilter=VWC
+
+[CLS:CSignupDlg]
+Type=0
+BaseClass=CDialog
+HeaderFile=SignupDlg.h
+ImplementationFile=SignupDlg.cpp
+
+[DLG:IDD_COURSE]
+Type=1
+Class=CCourseDlg
+ControlCount=16
+Control1=IDOK,button,1342242817
+Control2=IDCANCEL,button,1342242816
+Control3=IDC_STATIC,static,1342308352
+Control4=IDC_COURSEID,edit,1350631552
+Control5=IDC_STATIC,static,1342308352
+Control6=IDC_STATIC,static,1342308352
+Control7=IDC_CREDIT,edit,1350631552
+Control8=IDC_STATIC,static,1342308352
+Control9=IDC_TERM,edit,1350631552
+Control10=IDC_STATIC,static,1342308352
+Control11=IDC_CLASSROOM,edit,1350631552
+Control12=IDC_STATIC,static,1342308352
+Control13=IDC_GRADE,edit,1350631552
+Control14=IDC_STATIC,static,1342308352
+Control15=IDC_NAME,edit,1350633600
+Control16=IDC_COURSENAME,combobox,1344340226
+
+[DLG:IDD_ID_DLG]
+Type=1
+Class=CIDDlg
+ControlCount=4
+Control1=IDOK,button,1342242817
+Control2=IDCANCEL,button,1342242816
+Control3=IDC_IDBOX,combobox,1344340226
+Control4=IDC_STATIC,static,1342308352
 
 [DLG:IDD_ABOUTBOX]
 Type=1
@@ -115,9 +161,11 @@ Command8=ID_FILE_MRU_FILE1
 Command9=ID_APP_EXIT
 Command10=ID_INPUT_SIGNUP
 Command11=ID_INPUT_EDIT
-Command12=ID_OUTPUT_SIGNUP
-Command13=ID_APP_ABOUT
-CommandCount=13
+Command12=ID_INPUT_COURSE
+Command13=ID_COURSE_EDIT
+Command14=ID_OUTPUT_SIGNUP
+Command15=ID_APP_ABOUT
+CommandCount=15
 
 [ACL:IDR_MAINFRAME]
 Type=1
@@ -137,31 +185,4 @@ Command12=ID_EDIT_PASTE
 Command13=ID_NEXT_PANE
 Command14=ID_PREV_PANE
 CommandCount=14
-
-[CLS:CSignupDlg]
-Type=0
-HeaderFile=SignupDlg.h
-ImplementationFile=SignupDlg.cpp
-BaseClass=CDialog
-Filter=D
-VirtualFilter=dWC
-LastObject=CSignupDlg
-
-[DLG:IDD_ID_DLG]
-Type=1
-Class=CIDDlg
-ControlCount=4
-Control1=IDOK,button,1342242817
-Control2=IDCANCEL,button,1342242816
-Control3=IDC_IDBOX,combobox,1344340226
-Control4=IDC_STATIC,static,1342308352
-
-[CLS:CIDDlg]
-Type=0
-HeaderFile=IDDlg.h
-ImplementationFile=IDDlg.cpp
-BaseClass=CDialog
-Filter=D
-VirtualFilter=dWC
-LastObject=CIDDlg
 
