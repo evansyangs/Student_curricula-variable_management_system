@@ -21,12 +21,12 @@ Class9=CP07016221_5View
 Class10=CSignupDlg
 
 ResourceCount=8
-Resource1=IDR_MAINFRAME
-Resource2=IDD_COURSE_ID
-Resource3=IDD_COURSE
-Resource4=IDD_ID_DLG
-Resource5=IDD_ERROR
-Resource6=IDD_SIGNUP
+Resource1=IDD_ERROR
+Resource2=IDD_SIGNUP
+Resource3=IDD_COURSE_ID
+Resource4=IDD_COURSE
+Resource5=IDR_MAINFRAME
+Resource6=IDD_ID_DLG
 Resource7=IDD_ABOUTBOX
 Resource8=IDD_COURSE_TIPS
 
