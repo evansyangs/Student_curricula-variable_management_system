@@ -47,6 +47,9 @@ protected:
 	afx_msg void OnInputSignup();
 	afx_msg void OnInputEdit();
 	afx_msg void OnInputCourse();
+	afx_msg void OnInputDelete();
+	afx_msg void OnCourseEdit();
+	afx_msg void OnCourseDelete();
 	//}}AFX_MSG
 	DECLARE_MESSAGE_MAP()
 };

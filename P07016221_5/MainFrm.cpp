@@ -19,9 +19,8 @@ IMPLEMENT_DYNCREATE(CMainFrame, CFrameWnd)
 
 BEGIN_MESSAGE_MAP(CMainFrame, CFrameWnd)
 	//{{AFX_MSG_MAP(CMainFrame)
-		// NOTE - the ClassWizard will add and remove mapping macros here.
-		//    DO NOT EDIT what you see in these blocks of generated code !
 	ON_WM_CREATE()
+	ON_WM_CLOSE()
 	//}}AFX_MSG_MAP
 END_MESSAGE_MAP()
 
@@ -105,3 +104,16 @@ void CMainFrame::Dump(CDumpContext& dc) const
 /////////////////////////////////////////////////////////////////////////////
 // CMainFrame message handlers
 
+
+void CMainFrame::OnClose() 
+{
+	// TODO: Add your message handler code here and/or call default
+	int ret = AfxMessageBox("退出时是确定是否已经保存？",MB_YESNOCANCEL);//应该三态按钮，允许取消
+    if(ret==IDCANCEL)
+        return;
+    else if(ret==IDOK)
+    {
+        //保存和处理数据
+    }
+	CFrameWnd::OnClose();
+}

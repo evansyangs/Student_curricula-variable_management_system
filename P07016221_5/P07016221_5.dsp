@@ -98,6 +98,18 @@ SOURCE=.\CourseDlg.cpp
 # End Source File
 # Begin Source File
 
+SOURCE=.\CourseNameDlg.cpp
+# End Source File
+# Begin Source File
+
+SOURCE=.\CourseTipDlg.cpp
+# End Source File
+# Begin Source File
+
+SOURCE=.\Error.cpp
+# End Source File
+# Begin Source File
+
 SOURCE=.\IDDlg.cpp
 # End Source File
 # Begin Source File
@@ -144,6 +156,18 @@ SOURCE=.\Course.h
 # Begin Source File
 
 SOURCE=.\CourseDlg.h
+# End Source File
+# Begin Source File
+
+SOURCE=.\CourseNameDlg.h
+# End Source File
+# Begin Source File
+
+SOURCE=.\CourseTipDlg.h
+# End Source File
+# Begin Source File
+
+SOURCE=.\Error.h
 # End Source File
 # Begin Source File
 

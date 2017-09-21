@@ -13,6 +13,8 @@
 static char THIS_FILE[] = __FILE__;
 #endif
 
+#include "IDDlg.h"
+
 /////////////////////////////////////////////////////////////////////////////
 // CP07016221_5View
 
@@ -21,6 +23,7 @@ IMPLEMENT_DYNCREATE(CP07016221_5View, CListView)
 BEGIN_MESSAGE_MAP(CP07016221_5View, CListView)
 	//{{AFX_MSG_MAP(CP07016221_5View)
 	ON_COMMAND(ID_OUTPUT_SIGNUP, OnOutputSignup)
+	ON_COMMAND(ID_OUTPUT_SEARCH, OnOutputSearch)
 	//}}AFX_MSG_MAP
 	// Standard printing commands
 	ON_COMMAND(ID_FILE_PRINT, CListView::OnFilePrint)
@@ -164,5 +167,100 @@ void CP07016221_5View::OnOutputSignup()
 		Str.Format("%s",pStudent->mAddress); //将字符串格式化为字符串
 		ListCtrl.SetItem(Index,j,LVIF_TEXT,Str,0,0,0,NULL);
 		Index++;
+
+/*		j++;
+
+		for(int k=0;k<pStudent->mCourseArray.GetSize();k++)
+		{
+			Temp_str=Temp_str+pStudent->mCourseArray[k]->mCourseName;
+		}
+
+		Str.Format("%s",Temp_str); //将字符串格式化为字符串
+		ListCtrl.SetItem(Index,j,LVIF_TEXT,Str,0,0,0,NULL);
+		Index++;
+		*/
 	}
+}
+
+void CP07016221_5View::OnOutputSearch() 
+{
+	// TODO: Add your command handler code here
+	CListCtrl& ListCtrl = GetListCtrl();//得到CListView中的封装的控件CListCtrl 
+	while(ListCtrl.DeleteColumn(0)){};
+	ListCtrl.DeleteAllItems();
+	//以上2行代码用于清除原有的显示
+	ListCtrl.InsertColumn(0,"学号");
+	ListCtrl.SetColumnWidth(0,100);
+	//以上2行代码用于插入表头
+	ListCtrl.InsertColumn(1,"姓名");
+	ListCtrl.SetColumnWidth(1,100);
+	ListCtrl.InsertColumn(2,"课程编号");
+	ListCtrl.SetColumnWidth(2,100);
+	ListCtrl.InsertColumn(3,"课程名称");
+	ListCtrl.SetColumnWidth(3,100);
+	ListCtrl.InsertColumn(4,"学分");
+	ListCtrl.SetColumnWidth(4,100);
+	ListCtrl.InsertColumn(5,"学期");
+	ListCtrl.SetColumnWidth(5,100);
+	ListCtrl.InsertColumn(6,"教室");
+	ListCtrl.SetColumnWidth(6,100);
+	ListCtrl.InsertColumn(7,"成绩");
+	ListCtrl.SetColumnWidth(7,100);
+
+	int i,j,k,Index;
+	CString Str;
+	CCourse* pCourse = NULL;
+	CStudent* pStudent = NULL;
+	CP07016221_5Doc* pDoc = GetDocument(); //得到文档
+	Index = 0;
+	int Count=pDoc->mStudentArray.GetSize();
+	if(Count==0)
+		return;
+	CIDDlg IDDlg;
+	IDDlg.mpDoc=GetDocument();
+	if(IDDlg.DoModal() == IDOK)
+	{
+		for(i=0; i<Count;i++)
+		{
+			if(pDoc->mStudentArray[i]->mID == atoi(IDDlg.m_ID))
+			{
+				pStudent = pDoc->mStudentArray[i];
+				for(k=0;k<pStudent->mCourseArray.GetSize();k++)
+				{
+					pCourse=pDoc->mStudentArray[i]->mCourseArray[k];
+					Str.Format("%d",pStudent->mID); 	//将整数格式化为字符串
+					Index=ListCtrl.InsertItem(Index,Str); //在表中插入一行
+					j = 1;
+
+					Str.Format("%s",pStudent->mName); //将字符串格式化为字符串
+					ListCtrl.SetItem(Index,j,LVIF_TEXT,Str,0,0,0,NULL); //后面的单元格填充
+					j++;
+
+					Str.Format("%d",pCourse->mCourseID); 	//将整数格式化为字符串
+					ListCtrl.SetItem(Index,j,LVIF_TEXT,Str,0,0,0,NULL);
+					j++;
+
+					Str.Format("%s",pCourse->mCourseName); //将字符串格式化为字符串
+					ListCtrl.SetItem(Index,j,LVIF_TEXT,Str,0,0,0,NULL); //后面的单元格填充
+					j++;
+
+					Str.Format("%d",pCourse->mCredit); 	//将整数格式化为字符串
+					ListCtrl.SetItem(Index,j,LVIF_TEXT,Str,0,0,0,NULL); //后面的单元格填充
+					j++;
+
+					Str.Format("%d",pCourse->mTerm); //将字符串格式化为字符串
+					ListCtrl.SetItem(Index,j,LVIF_TEXT,Str,0,0,0,NULL);
+					j++;
+
+					Str.Format("%s",pCourse->mClassroom);
+					ListCtrl.SetItem(Index,j,LVIF_TEXT,Str,0,0,0,NULL);
+					j++;
+
+					Str.Format("%d",pCourse->mGrade); //将字符串格式化为字符串
+					ListCtrl.SetItem(Index,j,LVIF_TEXT,Str,0,0,0,NULL);
+					Index++;
+				}
+			}
+		}
+	}	
 }

@@ -35,6 +35,7 @@ void CSignupDlg::DoDataExchange(CDataExchange* pDX)
 	//{{AFX_DATA_MAP(CSignupDlg)
 	DDX_Text(pDX, IDC_ADDRESS, m_Address);
 	DDX_Text(pDX, IDC_CLASS, m_Class);
+	DDV_MinMaxInt(pDX, m_Class, 1, 3);
 	DDX_DateTimeCtrl(pDX, IDC_DATE, m_Date);
 	DDX_Text(pDX, IDC_ID, m_ID);
 	DDX_Text(pDX, IDC_NAME, m_Name);

@@ -50,6 +50,7 @@ protected:
 protected:
 	//{{AFX_MSG(CP07016221_5View)
 	afx_msg void OnOutputSignup();
+	afx_msg void OnOutputSearch();
 	//}}AFX_MSG
 	DECLARE_MESSAGE_MAP()
 };

@@ -8,22 +8,27 @@ NewFileInclude1=#include "stdafx.h"
 NewFileInclude2=#include "p07016221_5.h"
 LastPage=0
 
-ClassCount=8
+ClassCount=10
 Class1=CCourseDlg
-Class2=CIDDlg
-Class3=CMainFrame
-Class4=CP07016221_5App
-Class5=CAboutDlg
-Class6=CP07016221_5Doc
-Class7=CP07016221_5View
-Class8=CSignupDlg
+Class2=CCourseNameDlg
+Class3=CError
+Class4=CIDDlg
+Class5=CMainFrame
+Class6=CP07016221_5App
+Class7=CAboutDlg
+Class8=CP07016221_5Doc
+Class9=CP07016221_5View
+Class10=CSignupDlg
 
-ResourceCount=5
-Resource1=IDD_ABOUTBOX
-Resource2=IDD_SIGNUP
-Resource3=IDD_ID_DLG
-Resource4=IDR_MAINFRAME
-Resource5=IDD_COURSE
+ResourceCount=8
+Resource1=IDR_MAINFRAME
+Resource2=IDD_COURSE_ID
+Resource3=IDD_COURSE
+Resource4=IDD_ID_DLG
+Resource5=IDD_ERROR
+Resource6=IDD_SIGNUP
+Resource7=IDD_ABOUTBOX
+Resource8=IDD_COURSE_TIPS
 
 [CLS:CCourseDlg]
 Type=0
@@ -32,7 +37,22 @@ HeaderFile=CourseDlg.h
 ImplementationFile=CourseDlg.cpp
 Filter=D
 VirtualFilter=dWC
-LastObject=CCourseDlg
+
+[CLS:CCourseNameDlg]
+Type=0
+BaseClass=CDialog
+HeaderFile=CourseNameDlg.h
+ImplementationFile=CourseNameDlg.cpp
+LastObject=CCourseNameDlg
+Filter=D
+VirtualFilter=dWC
+
+[CLS:CError]
+Type=0
+BaseClass=CDialog
+HeaderFile=Error.h
+ImplementationFile=Error.cpp
+LastObject=CError
 
 [CLS:CIDDlg]
 Type=0
@@ -45,6 +65,8 @@ Type=0
 BaseClass=CFrameWnd
 HeaderFile=MainFrm.h
 ImplementationFile=MainFrm.cpp
+Filter=T
+VirtualFilter=fWC
 
 [CLS:CP07016221_5App]
 Type=0
@@ -63,6 +85,8 @@ Type=0
 BaseClass=CDocument
 HeaderFile=P07016221_5Doc.h
 ImplementationFile=P07016221_5Doc.cpp
+Filter=W
+VirtualFilter=DC
 
 [CLS:CP07016221_5View]
 Type=0
@@ -75,6 +99,8 @@ Type=0
 BaseClass=CDialog
 HeaderFile=SignupDlg.h
 ImplementationFile=SignupDlg.cpp
+Filter=D
+VirtualFilter=dWC
 
 [DLG:IDD_COURSE]
 Type=1
@@ -86,16 +112,35 @@ Control3=IDC_STATIC,static,1342308352
 Control4=IDC_COURSEID,edit,1350631552
 Control5=IDC_STATIC,static,1342308352
 Control6=IDC_STATIC,static,1342308352
-Control7=IDC_CREDIT,edit,1350631552
+Control7=IDC_CREDIT,edit,1350633600
 Control8=IDC_STATIC,static,1342308352
-Control9=IDC_TERM,edit,1350631552
+Control9=IDC_TERM,edit,1350633600
 Control10=IDC_STATIC,static,1342308352
-Control11=IDC_CLASSROOM,edit,1350631552
+Control11=IDC_CLASSROOM,edit,1350633600
 Control12=IDC_STATIC,static,1342308352
 Control13=IDC_GRADE,edit,1350631552
 Control14=IDC_STATIC,static,1342308352
 Control15=IDC_NAME,edit,1350633600
 Control16=IDC_COURSENAME,combobox,1344340226
+
+[DLG:IDD_COURSE_ID]
+Type=1
+Class=CCourseNameDlg
+ControlCount=6
+Control1=IDOK,button,1342242817
+Control2=IDCANCEL,button,1342242816
+Control3=IDC_STATIC,static,1342308352
+Control4=IDC_STATIC,static,1342308352
+Control5=IDC_ID_COMBOX,combobox,1344340226
+Control6=IDC_COURSEID,edit,1350631552
+
+[DLG:IDD_ERROR]
+Type=1
+Class=CError
+ControlCount=3
+Control1=IDOK,button,1342242817
+Control2=IDCANCEL,button,1342242816
+Control3=IDC_STATIC,static,1342308864
 
 [DLG:IDD_ID_DLG]
 Type=1
@@ -161,11 +206,14 @@ Command8=ID_FILE_MRU_FILE1
 Command9=ID_APP_EXIT
 Command10=ID_INPUT_SIGNUP
 Command11=ID_INPUT_EDIT
-Command12=ID_INPUT_COURSE
-Command13=ID_COURSE_EDIT
-Command14=ID_OUTPUT_SIGNUP
-Command15=ID_APP_ABOUT
-CommandCount=15
+Command12=ID_INPUT_DELETE
+Command13=ID_INPUT_COURSE
+Command14=ID_COURSE_EDIT
+Command15=ID_COURSE_DELETE
+Command16=ID_OUTPUT_SIGNUP
+Command17=ID_OUTPUT_SEARCH
+Command18=ID_APP_ABOUT
+CommandCount=18
 
 [ACL:IDR_MAINFRAME]
 Type=1
@@ -185,4 +233,12 @@ Command12=ID_EDIT_PASTE
 Command13=ID_NEXT_PANE
 Command14=ID_PREV_PANE
 CommandCount=14
+
+[DLG:IDD_COURSE_TIPS]
+Type=1
+Class=?
+ControlCount=3
+Control1=IDOK,button,1342242817
+Control2=IDCANCEL,button,1342242816
+Control3=IDC_STATIC,static,1342308352
 

@@ -19,13 +19,13 @@ public:
 // Dialog Data
 	//{{AFX_DATA(CCourseDlg)
 	enum { IDD = IDD_COURSE };
-	int		m_Classroom;
 	int		m_CourseID;
 	int		m_Credit;
 	int		m_Grade;
 	int		m_Term;
 	CString	m_Name;
 	CString	m_CourseName;
+	CString	m_Classroom;
 	//}}AFX_DATA
 
 
@@ -41,7 +41,7 @@ protected:
 
 	// Generated message map functions
 	//{{AFX_MSG(CCourseDlg)
-		// NOTE: the ClassWizard will add member functions here
+	afx_msg void OnSelendokCoursename();
 	//}}AFX_MSG
 	DECLARE_MESSAGE_MAP()
 };

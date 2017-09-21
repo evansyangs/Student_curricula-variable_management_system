@@ -18,7 +18,7 @@ public:
 	CString mCourseName;//课程名称
 	int mCredit;//学分
 	int mTerm;//学期
-	int mClassroom;//教室
+	CString mClassroom;//教室
 	int mGrade;//成绩
 
 	CCourse();

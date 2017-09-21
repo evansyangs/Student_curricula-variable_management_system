@@ -15,6 +15,9 @@ static char THIS_FILE[] = __FILE__;
 #include "SignupDlg.h"
 #include "IDDlg.h"
 #include "CourseDlg.h"
+#include "CourseNameDlg.h"
+#include "Error.h"
+#include "CourseTipDlg.h"
 
 /////////////////////////////////////////////////////////////////////////////
 // CP07016221_5Doc
@@ -26,6 +29,9 @@ BEGIN_MESSAGE_MAP(CP07016221_5Doc, CDocument)
 	ON_COMMAND(ID_INPUT_SIGNUP, OnInputSignup)
 	ON_COMMAND(ID_INPUT_EDIT, OnInputEdit)
 	ON_COMMAND(ID_INPUT_COURSE, OnInputCourse)
+	ON_COMMAND(ID_INPUT_DELETE, OnInputDelete)
+	ON_COMMAND(ID_COURSE_EDIT, OnCourseEdit)
+	ON_COMMAND(ID_COURSE_DELETE, OnCourseDelete)
 	//}}AFX_MSG_MAP
 END_MESSAGE_MAP()
 
@@ -99,7 +105,9 @@ void CP07016221_5Doc::OnInputSignup()
 		if(mStudentArray[i]->mID>Dlg.m_ID)
 			Dlg.m_ID = mStudentArray[i]->mID;
 	Dlg.m_ID++;
-	Dlg.m_Name = "Zhangsan";
+	Dlg.m_Name = "梅海峰";
+	Dlg.m_Tel = "13621560769";
+	Dlg.m_Address = "南京";
 	if(Dlg.DoModal() == IDOK)
 	{
 		CStudent* pStudent = new CStudent;
@@ -113,6 +121,7 @@ void CP07016221_5Doc::OnInputSignup()
 		//以上6行将数据将对话框内输入的数据赋值给CStudent相应的成员变量
 		mStudentArray.Add(pStudent);
 		//将新生成的CStudent对象加入CStudent集合类中
+		//UpdateAllViews(NULL);
 	}	
 }
 
@@ -140,6 +149,7 @@ void CP07016221_5Doc::OnInputEdit()
 				Dlg.m_Tel = pStudent->mTel;
 				if(Dlg.DoModal()==IDOK)
 				{
+
 					pStudent->mAddress = Dlg.m_Address;
 					pStudent->mClass = Dlg.m_Class;
 					pStudent->mDate = Dlg.m_Date;
@@ -157,33 +167,215 @@ void CP07016221_5Doc::OnInputCourse()
 	if(Count==0)
 		return;
 	// TODO: Add your command handler code here
-		// TODO: Add your command handler code here
 	CIDDlg IDDlg;
 	IDDlg.mpDoc = this;
 	//提示，此处可对对话框空间关联成员变量初始化
 	if(IDDlg.DoModal() == IDOK)
 	{
-		for(int i=0; i<mStudentArray.GetSize();i++)
+		for(int i=0; i<Count;i++)
 		{
 			if(mStudentArray[i]->mID == atoi(IDDlg.m_ID))
 			{
-				CCourseDlg Dlg;
-				Dlg.m_Name = mStudentArray[i]->mName;
-				if(Dlg.DoModal() == IDOK)
+				CCourseTipDlg TipDlg;
+				if(TipDlg.DoModal() == IDOK)
 				{
-					CCourse* pCourse = new CCourse;
-					//用new生成CStudent对象
-					pCourse->mClassroom = Dlg.m_Classroom;
-					pCourse->mCourseID = Dlg.m_CourseID;
-				//	pCourse->mCourseName = Dlg.m_CourseName;
-					pCourse->mCredit = Dlg.m_Credit;
-					pCourse->mGrade = Dlg.m_Grade;
-					pCourse->mTerm = Dlg.m_Term;
-					//以上6行将数据将对话框内输入的数据赋值给CStudent相应的成员变量
-					mStudentArray[i]->mCourseArray.Add(pCourse);
-					//将新生成的CStudent对象加入CStudent集合类中
-				}	
+					CCourseDlg Dlg;
+					Dlg.m_CourseID = 1;
+					Dlg.m_Name = mStudentArray[i]->mName;
+					Dlg.m_Classroom="J3-104";
+					Dlg.m_CourseName="程序设计";
+					if(Dlg.DoModal() == IDOK)
+					{
+						CCourse* pCourse = new CCourse;
+						//用new生成CCourse对象
+						for(int k=0;k<mStudentArray[i]->mCourseArray.GetSize();k++)
+						{
+							if(mStudentArray[i]->mCourseArray[k]->mCourseID==Dlg.m_CourseID)
+							{
+								CError Dlg;
+								Dlg.DoModal();
+								return;
+							}
+						}
+						pCourse->mCourseID = Dlg.m_CourseID;
+						if(pCourse->mCourseID==1)
+						{
+							pCourse->mClassroom = "J3-104";
+							pCourse->mCourseName="程序设计";
+							pCourse->mCredit=2;
+							pCourse->mTerm=3;
+						}
+						else if(pCourse->mCourseID==2)
+						{
+							pCourse->mClassroom = "J2-202";
+							pCourse->mCourseName="高等代数";
+							pCourse->mCredit=4;
+							pCourse->mTerm=1;
+						}
+						else if(pCourse->mCourseID==3)
+						{
+							pCourse->mClassroom = "J4-301";
+							pCourse->mCourseName="解析几何";
+							pCourse->mCredit=3;
+							pCourse->mTerm=2;
+						}
+						else
+						{
+							pCourse->mClassroom = "J6-102";
+							pCourse->mCourseName="数学分析";
+							pCourse->mCredit=5;
+							pCourse->mTerm=3;
+						}
+						pCourse->mGrade = Dlg.m_Grade;
+						//以上6行将数据将对话框内输入的数据赋值给CCourse相应的成员变量
+						mStudentArray[i]->mCourseArray.Add(pCourse);
+						//将新生成的CCourse对象加入CCourse集合类中
+					}
+					break;
+				}
 			}
 		}
 	}
 }
+
+void CP07016221_5Doc::OnInputDelete() 
+{
+	// TODO: Add your command handler code here
+	int Count = mStudentArray.GetSize();
+	if(Count==0)
+		return;
+
+	CIDDlg IDDlg;
+	IDDlg.mpDoc = this;
+	if(IDDlg.DoModal() == IDOK)
+	{
+		for(int i=0; i<Count;i++)
+		{
+			if(mStudentArray[i]->mID == atoi(IDDlg.m_ID))
+			{
+				delete mStudentArray[i];
+				mStudentArray.RemoveAt(i);
+				return;
+			}
+		}
+	}	
+}
+
+void CP07016221_5Doc::OnCourseEdit() 
+{
+	int Count1 = mStudentArray.GetSize();
+	if(Count1==0)
+		return;
+	CCourseNameDlg IDDlg;
+	IDDlg.mpDoc = this;
+	if(IDDlg.DoModal() == IDOK)
+	{
+		for(int i=0; i<Count1;i++)
+		{
+			if(mStudentArray[i]->mID == atoi(IDDlg.m_ID))
+			{
+				int Count2 = mStudentArray[i]->mCourseArray.GetSize();
+				if(Count2==0)
+					return;
+				for(int j=0;j<Count2;j++)
+				{
+					if(mStudentArray[i]->mCourseArray[j]->mCourseID == IDDlg.m_CourseID)
+					{
+						CCourseTipDlg TipDlg;
+						if(TipDlg.DoModal() == IDOK)
+						{			
+							CCourseDlg Dlg;
+							CCourse* pCourse = mStudentArray[i]->mCourseArray[j];
+							Dlg.m_Name = mStudentArray[i]->mName;
+							Dlg.m_Classroom = pCourse->mClassroom;
+							Dlg.m_CourseID = pCourse->mCourseID;
+							Dlg.m_CourseName = pCourse->mCourseName;
+							Dlg.m_Credit = pCourse->mCredit;
+							Dlg.m_Grade = pCourse->mGrade;
+							Dlg.m_Term = pCourse->mTerm;
+							if(Dlg.DoModal() == IDOK)
+							{
+								pCourse->mCourseID = Dlg.m_CourseID;
+								if(pCourse->mCourseID==1)
+								{
+									pCourse->mClassroom = "J3-104";
+									pCourse->mCourseName="程序设计";
+									pCourse->mCredit=2;
+									pCourse->mTerm=3;
+								}
+								else if(pCourse->mCourseID==2)
+								{
+									pCourse->mClassroom = "J2-202";
+									pCourse->mCourseName="高等代数";
+									pCourse->mCredit=4;
+									pCourse->mTerm=1;
+								}
+								else if(pCourse->mCourseID==3)
+								{
+									pCourse->mClassroom = "J4-301";
+									pCourse->mCourseName="解析几何";
+									pCourse->mCredit=3;
+									pCourse->mTerm=2;
+								}
+								else
+								{
+									pCourse->mClassroom = "J6-102";
+									pCourse->mCourseName="数学分析";
+									pCourse->mCredit=5;
+									pCourse->mTerm=3;
+								}
+								pCourse->mGrade = Dlg.m_Grade;
+							}
+							break;
+						}
+					}
+					if(j==Count2-1)
+					{
+						CError Dlg;
+						Dlg.DoModal();
+					}
+				}
+			}
+		}
+	}	
+}
+
+void CP07016221_5Doc::OnCourseDelete() 
+{
+	// TODO: Add your command handler code here
+	int Count1 = mStudentArray.GetSize();
+	if(Count1==0)
+		return;
+	CCourseNameDlg IDDlg;
+	IDDlg.mpDoc = this;
+	if(IDDlg.DoModal() == IDOK)
+	{
+		for(int i=0; i<Count1;i++)
+		{
+			if(mStudentArray[i]->mID == atoi(IDDlg.m_ID))
+			{
+				int Count2 = mStudentArray[i]->mCourseArray.GetSize();
+				if(Count2==0)
+					return;
+				for(int j=0;j<Count2;j++)
+				{
+					if(mStudentArray[i]->mCourseArray[j]->mCourseID == IDDlg.m_CourseID)
+					{
+						delete mStudentArray[i]->mCourseArray[j];
+						mStudentArray[i]->mCourseArray.RemoveAt(j);
+						return;
+					}
+				}
+			}
+		}
+	}	
+}
+
+//DEL void CP07016221_5Doc::OnClose() 
+//DEL {
+//DEL 	// TODO: Add your message handler code here and/or call default
+//DEL 	CDocument::SetModifiedFlag();  
+//DEL 	CDocument::IsModified();  
+//DEL 	CDocument::SaveModified();
+//DEL 	CDocument::OnClose();
+//DEL }
